@@ -1,0 +1,126 @@
+{
+  "name": "Gualán Market - Tu Mercado Local",
+  "short_name": "Gualán Market",
+  "description": "Mercado virtual de Gualán, Zacapa, Guatemala. Compra y vende productos locales de forma segura.",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "theme_color": "#10b981",
+  "background_color": "#ffffff",
+  "categories": ["shopping", "business", "lifestyle"],
+  "scope": "/",
+  "lang": "es-GT",
+  "dir": "ltr",
+  "icons": [
+    {
+      "src": "/icons/icon-72x72.png",
+      "sizes": "72x72",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-96x96.png",
+      "sizes": "96x96",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-128x128.png",
+      "sizes": "128x128",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-144x144.png",
+      "sizes": "144x144",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-152x152.png",
+      "sizes": "152x152",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-384x384.png",
+      "sizes": "384x384",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/maskable-icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/screenshots/home-mobile.png",
+      "sizes": "1080x2340",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Pantalla de inicio con productos locales"
+    },
+    {
+      "src": "/screenshots/store-mobile.png",
+      "sizes": "1080x2340",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Mi Tienda - Gestiona tus productos"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Inicio",
+      "short_name": "Inicio",
+      "description": "Ver productos disponibles",
+      "url": "/?source=shortcut",
+      "icons": [
+        {
+          "src": "/icons/icon-192x192.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "Mi Tienda",
+      "short_name": "Tienda",
+      "description": "Administrar mi tienda",
+      "url": "/?screen=store&source=shortcut",
+      "icons": [
+        {
+          "src": "/icons/icon-192x192.png",
+          "sizes": "192x192"
+        }
+      ]
+    },
+    {
+      "name": "Carrito",
+      "short_name": "Carrito",
+      "description": "Ver mi carrito de compras",
+      "url": "/?screen=cart&source=shortcut",
+      "icons": [
+        {
+          "src": "/icons/icon-192x192.png",
+          "sizes": "192x192"
+        }
+      ]
+    }
+  ],
+  "related_applications": [],
+  "prefer_related_applications": false
+}

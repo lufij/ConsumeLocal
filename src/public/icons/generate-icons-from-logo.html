@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generar Iconos PWA - Gualán Market</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 800px;
+            width: 100%;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            color: #059669;
+            margin-bottom: 10px;
+            font-size: 28px;
+        }
+
+        .subtitle {
+            color: #6b7280;
+            margin-bottom: 30px;
+            font-size: 16px;
+        }
+
+        .logo-preview {
+            text-align: center;
+            margin: 30px 0;
+            padding: 20px;
+            background: #f3f4f6;
+            border-radius: 12px;
+        }
+
+        .logo-preview img {
+            max-width: 300px;
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn {
+            width: 100%;
+            padding: 16px 32px;
+            font-size: 18px;
+            font-weight: 600;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin: 10px 0;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(16, 185, 129, 0.4);
+        }
+
+        .btn-primary:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .progress {
+            margin: 20px 0;
+            display: none;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: #e5e7eb;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #10b981 0%, #059669 100%);
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+
+        .status {
+            margin-top: 10px;
+            text-align: center;
+            color: #6b7280;
+            font-size: 14px;
+        }
+
+        .icon-list {
+            margin: 20px 0;
+            display: none;
+        }
+
+        .icon-item {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            margin: 8px 0;
+            background: #f9fafb;
+            border-radius: 8px;
+            font-size: 14px;
+        }
+
+        .icon-item.success {
+            background: #d1fae5;
+            color: #059669;
+        }
+
+        .icon-check {
+            margin-right: 10px;
+            font-weight: bold;
+        }
+
+        .instructions {
+            background: #fef3c7;
+            border-left: 4px solid #f59e0b;
+            padding: 16px;
+            border-radius: 8px;
+            margin-top: 20px;
+            display: none;
+        }
+
+        .instructions h3 {
+            color: #92400e;
+            margin-bottom: 8px;
+            font-size: 16px;
+        }
+
+        .instructions p {
+            color: #78350f;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .instructions code {
+            background: white;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+        }
+
+        #canvas-container {
+            display: none;
+        }
+
+        .alert {
+            background: #dbeafe;
+            border-left: 4px solid #3b82f6;
+            padding: 16px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .alert p {
+            color: #1e40af;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎨 Generador de Iconos PWA</h1>
+        <p class="subtitle">Gualán Market - Genera los 9 iconos necesarios para la PWA</p>
+
+        <div class="alert">
+            <p><strong>📱 Importante:</strong> Este generador creará los 9 iconos PNG optimizados para tu PWA. 
+            El proceso es automático y tomará solo unos segundos.</p>
+        </div>
+
+        <div class="logo-preview">
+            <img id="logo-img" alt="Logo Gualán Market">
+            <p style="margin-top: 10px; color: #6b7280; font-size: 14px;">Logo original</p>
+        </div>
+
+        <button id="generate-btn" class="btn btn-primary">
+            📥 Generar y Descargar Todos los Iconos (9 archivos PNG)
+        </button>
+
+        <div class="progress" id="progress">
+            <div class="progress-bar">
+                <div class="progress-fill" id="progress-fill"></div>
+            </div>
+            <p class="status" id="status">Preparando...</p>
+        </div>
+
+        <div class="icon-list" id="icon-list"></div>
+
+        <div class="instructions" id="instructions">
+            <h3>✅ ¡Iconos generados exitosamente!</h3>
+            <p>Se han descargado 9 archivos PNG. Ahora debes:</p>
+            <ol style="margin-left: 20px; margin-top: 10px;">
+                <li style="margin: 8px 0;">Abre la carpeta <code>Downloads</code> (Descargas) de tu navegador</li>
+                <li style="margin: 8px 0;">Mueve todos los archivos <code>icon-*.png</code> a: <code>/public/icons/</code></li>
+                <li style="margin: 8px 0;">Verifica con: <code>ls public/icons/*.png</code></li>
+                <li style="margin: 8px 0;">Ejecuta: <code>node scripts/check-deployment-ready.js</code></li>
+            </ol>
+            <p style="margin-top: 12px;"><strong>🚀 Después puedes proceder al deployment en Vercel</strong></p>
+        </div>
+
+        <div id="canvas-container"></div>
+    </div>
+
+    <script>
+        // Logo base64 embebido (será reemplazado con la imagen real)
+        const LOGO_BASE64 = 'data:image/png;base64,LOGO_PLACEHOLDER';
+
+        // Tamaños de iconos requeridos
+        const ICON_SIZES = [
+            { size: 72, name: 'icon-72x72.png' },
+            { size: 96, name: 'icon-96x96.png' },
+            { size: 128, name: 'icon-128x128.png' },
+            { size: 144, name: 'icon-144x144.png' },
+            { size: 152, name: 'icon-152x152.png' },
+            { size: 192, name: 'icon-192x192.png' },
+            { size: 384, name: 'icon-384x384.png' },
+            { size: 512, name: 'icon-512x512.png' },
+            { size: 512, name: 'maskable-icon-512x512.png', maskable: true }
+        ];
+
+        let logoImage = null;
+
+        // Cargar el logo
+        async function loadLogo() {
+            return new Promise((resolve, reject) => {
+                const img = new Image();
+                img.crossOrigin = 'anonymous';
+                
+                // Intentar cargar desde la ruta del proyecto
+                img.src = '../../figma-assets/f363da58c695d80309a491d46687c31d09664423.png';
+                
+                img.onload = () => {
+                    logoImage = img;
+                    document.getElementById('logo-img').src = img.src;
+                    resolve(img);
+                };
+                
+                img.onerror = () => {
+                    // Si falla, intentar con ruta alternativa
+                    img.src = '../figma-assets/f363da58c695d80309a491d46687c31d09664423.png';
+                    
+                    img.onerror = () => {
+                        // Si falla nuevamente, crear un logo de respaldo
+                        console.warn('No se pudo cargar el logo, creando uno de respaldo');
+                        createFallbackLogo().then(resolve).catch(reject);
+                    };
+                };
+            });
+        }
+
+        // Crear logo de respaldo usando canvas
+        function createFallbackLogo() {
+            return new Promise((resolve) => {
+                const canvas = document.createElement('canvas');
+                canvas.width = 1000;
+                canvas.height = 1000;
+                const ctx = canvas.getContext('2d');
+
+                // Fondo verde oscuro
+                ctx.fillStyle = '#1e4620';
+                ctx.fillRect(0, 0, 1000, 1000);
+
+                // Hourglass amarillo
+                ctx.fillStyle = '#fbbf24';
+                ctx.beginPath();
+                ctx.moveTo(300, 200);
+                ctx.lineTo(700, 200);
+                ctx.lineTo(700, 250);
+                ctx.lineTo(550, 500);
+                ctx.lineTo(700, 750);
+                ctx.lineTo(700, 800);
+                ctx.lineTo(300, 800);
+                ctx.lineTo(300, 750);
+                ctx.lineTo(450, 500);
+                ctx.lineTo(300, 250);
+                ctx.closePath();
+                ctx.fill();
+
+                // Agregar vegetales simplificados
+                // Tomate
+                ctx.fillStyle = '#ef4444';
+                ctx.beginPath();
+                ctx.arc(500, 350, 40, 0, Math.PI * 2);
+                ctx.fill();
+
+                // Zanahoria
+                ctx.fillStyle = '#f97316';
+                ctx.beginPath();
+                ctx.moveTo(450, 450);
+                ctx.lineTo(430, 550);
+                ctx.lineTo(450, 550);
+                ctx.lineTo(470, 550);
+                ctx.closePath();
+                ctx.fill();
+
+                // Berenjena
+                ctx.fillStyle = '#7c3aed';
+                ctx.beginPath();
+                ctx.ellipse(550, 500, 30, 50, 0, 0, Math.PI * 2);
+                ctx.fill();
+
+                // Texto
+                ctx.fillStyle = 'white';
+                ctx.font = 'bold 120px Arial';
+                ctx.textAlign = 'center';
+                ctx.fillText('CONSUME', 500, 670);
+
+                ctx.fillStyle = '#fbbf24';
+                ctx.font = 'bold 80px Arial';
+                ctx.fillText('LOCAL GUALÁN', 500, 750);
+
+                canvas.toBlob((blob) => {
+                    const url = URL.createObjectURL(blob);
+                    const img = new Image();
+                    img.src = url;
+                    img.onload = () => {
+                        logoImage = img;
+                        document.getElementById('logo-img').src = url;
+                        resolve(img);
+                    };
+                });
+            });
+        }
+
+        // Generar un icono individual
+        function generateIcon(size, maskable = false) {
+            return new Promise((resolve) => {
+                const canvas = document.createElement('canvas');
+                canvas.width = size;
+                canvas.height = size;
+                const ctx = canvas.getContext('2d');
+
+                if (maskable) {
+                    // Para maskable, agregar padding del 10%
+                    const padding = size * 0.1;
+                    const imageSize = size - (padding * 2);
+                    
+                    // Fondo de seguridad para maskable
+                    ctx.fillStyle = '#1e4620';
+                    ctx.fillRect(0, 0, size, size);
+                    
+                    ctx.drawImage(logoImage, padding, padding, imageSize, imageSize);
+                } else {
+                    // Sin padding para iconos normales
+                    ctx.drawImage(logoImage, 0, 0, size, size);
+                }
+
+                canvas.toBlob((blob) => {
+                    resolve(blob);
+                }, 'image/png');
+            });
+        }
+
+        // Descargar un archivo
+        function downloadFile(blob, filename) {
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = filename;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+
+        // Actualizar lista de iconos
+        function updateIconList(filename) {
+            const iconList = document.getElementById('icon-list');
+            const item = document.createElement('div');
+            item.className = 'icon-item success';
+            item.innerHTML = `<span class="icon-check">✓</span> ${filename}`;
+            iconList.appendChild(item);
+        }
+
+        // Generar todos los iconos
+        async function generateAllIcons() {
+            const generateBtn = document.getElementById('generate-btn');
+            const progress = document.getElementById('progress');
+            const progressFill = document.getElementById('progress-fill');
+            const status = document.getElementById('status');
+            const iconList = document.getElementById('icon-list');
+            const instructions = document.getElementById('instructions');
+
+            generateBtn.disabled = true;
+            progress.style.display = 'block';
+            iconList.style.display = 'block';
+            iconList.innerHTML = '';
+
+            try {
+                // Cargar logo si no está cargado
+                if (!logoImage) {
+                    status.textContent = 'Cargando logo...';
+                    await loadLogo();
+                }
+
+                const total = ICON_SIZES.length;
+
+                for (let i = 0; i < total; i++) {
+                    const { size, name, maskable } = ICON_SIZES[i];
+                    
+                    status.textContent = `Generando ${name}... (${i + 1}/${total})`;
+                    progressFill.style.width = `${((i + 1) / total) * 100}%`;
+
+                    const blob = await generateIcon(size, maskable);
+                    downloadFile(blob, name);
+                    updateIconList(name);
+
+                    // Pequeño delay entre descargas
+                    await new Promise(resolve => setTimeout(resolve, 300));
+                }
+
+                status.textContent = '✅ ¡Todos los iconos generados!';
+                progressFill.style.width = '100%';
+                instructions.style.display = 'block';
+
+            } catch (error) {
+                status.textContent = '❌ Error: ' + error.message;
+                console.error('Error generando iconos:', error);
+            } finally {
+                generateBtn.disabled = false;
+            }
+        }
+
+        // Event listeners
+        document.getElementById('generate-btn').addEventListener('click', generateAllIcons);
+
+        // Cargar logo al inicio
+        loadLogo().catch(err => {
+            console.error('Error cargando logo inicial:', err);
+        });
+    </script>
+</body>
+</html>

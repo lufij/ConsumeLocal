@@ -1,0 +1,292 @@
+╔════════════════════════════════════════════════════════════════════════════╗
+║                                                                            ║
+║              📁 ARCHIVOS DE INSTRUCCIONES - GUALÁN MARKET                 ║
+║                    🔄 APLICACIÓN CON DATOS REALES                         ║
+║                                                                            ║
+╚════════════════════════════════════════════════════════════════════════════╝
+
+
+⚠️  CAMBIO IMPORTANTE
+═══════════════════════
+
+Esta aplicación ahora usa DATOS REALES almacenados en Supabase.
+
+❌ NO mostrar usuarios demo
+❌ NO mostrar productos demo
+❌ NO mostrar tiendas demo
+
+✅ SOLO usuarios reales
+✅ SOLO productos reales
+✅ SOLO datos de Supabase
+
+
+🎯 PARA LA IA DE VISUAL STUDIO CODE
+═══════════════════════════════════
+
+Dile a la IA que lea estos archivos en este orden:
+
+
+1️⃣  START_HERE.md
+    ═══════════════
+    📌 LEE ESTE PRIMERO
+    ✅ Punto de entrada principal
+    ✅ Resumen ultra rápido del proyecto
+    ✅ Qué hacer según la solicitud del usuario
+    ⚠️  Indica que ahora es aplicación REAL
+
+
+2️⃣  CAMBIO_A_DATOS_REALES.md
+    ═════════════════════════════
+    📌 NUEVO - MUY IMPORTANTE
+    ✅ Resumen ejecutivo del cambio
+    ✅ Antes vs Ahora
+    ✅ Qué eliminar
+    ✅ Checklist de migración
+
+
+3️⃣  MIGRATION_TO_SUPABASE.md
+    ═════════════════════════════
+    📌 NUEVO - GUÍA TÉCNICA COMPLETA
+    ✅ Estructura de base de datos (SQL)
+    ✅ Row Level Security (RLS)
+    ✅ Configuración de Supabase
+    ✅ Ejemplos de código
+    ✅ Migración paso a paso
+
+
+4️⃣  AI_QUICK_GUIDE.md
+    ═════════════════════
+    📌 REFERENCIA RÁPIDA
+    ✅ Comandos esenciales (dev, build, deploy)
+    ✅ Troubleshooting rápido
+    ✅ Soluciones a problemas comunes
+
+
+5️⃣  SETUP_INSTRUCTIONS.md
+    ══════════════════════════
+    📌 GUÍA COMPLETA Y DETALLADA
+    ✅ Descripción completa de la aplicación
+    ✅ Instalación paso a paso
+    ✅ Configuración del Service Worker
+    ✅ Deploy en Vercel detallado
+    ✅ Troubleshooting exhaustivo
+
+
+═══════════════════════════════════════════════════════════════════════════
+
+
+📋 ARCHIVOS ADICIONALES
+═══════════════════════
+
+DEPLOYMENT_CHECKLIST.md
+    ✅ Checklist visual paso a paso
+    ✅ Usar durante el proceso de deployment
+
+VSCODE_SETUP.md
+    ✅ Configuración específica de VS Code
+    ✅ Extensiones recomendadas
+    ✅ Tareas comunes de desarrollo
+
+FILES_CREATED.md
+    ✅ Lista de todos los archivos creados
+    ✅ Explicación de cada uno
+
+README.md
+    ✅ Documentación pública para GitHub
+    ✅ Descripción del proyecto
+
+
+═══════════════════════════════════════════════════════════════════════════
+
+
+🔧 ARCHIVOS TÉCNICOS CRÍTICOS (YA CREADOS)
+═══════════════════════════════════════════
+
+/public/service-worker.js
+    ⚠️  CRÍTICO - Service Worker para PWA
+    ✅ Ya está creado y funcional
+    ❌ NO ELIMINAR
+
+/public/manifest.json
+    ⚠️  CRÍTICO - Manifest PWA
+    ✅ Ya existe
+    ❌ NO MODIFICAR sin razón
+
+/vercel.json
+    ⚠️  IMPORTANTE - Configuración Vercel
+    ✅ Ya está creado
+    ✅ Headers optimizados para PWA
+
+/.gitignore
+    ✅ Archivos a ignorar en Git
+    ✅ Ya configurado
+
+/.vscode/extensions.json
+    ✅ Extensiones recomendadas de VS Code
+
+/.vscode/settings.json
+    ✅ Configuración de VS Code
+
+
+═══════════════════════════════════════════════════════════════════════════
+
+
+⚡ COMANDOS ULTRA RÁPIDOS
+═══════════════════════════
+
+# Instalar
+npm install
+
+# Desarrollo (http://localhost:5173)
+npm run dev
+
+# Build producción
+npm run build
+
+# Preview build
+npm run preview
+
+# Deploy (después de git push)
+Automático en Vercel
+
+
+═══════════════════════════════════════════════════════════════════════════
+
+
+📖 CÓMO USAR ESTOS ARCHIVOS
+════════════════════════════
+
+ESCENARIO 1: "Prepara el proyecto"
+→ Dile a la IA: "Lee START_HERE.md y AI_QUICK_GUIDE.md"
+
+ESCENARIO 2: "Necesito información completa"
+→ Dile a la IA: "Lee SETUP_INSTRUCTIONS.md completo"
+
+ESCENARIO 3: "Voy a hacer deployment"
+→ Dile a la IA: "Sigue DEPLOYMENT_CHECKLIST.md paso a paso"
+
+ESCENARIO 4: "Configura VS Code"
+→ Dile a la IA: "Implementa lo descrito en VSCODE_SETUP.md"
+
+ESCENARIO 5: "¿Qué archivos se crearon?"
+→ Dile a la IA: "Lee FILES_CREATED.md"
+
+
+═══════════════════════════════════════════════════════════════════════════
+
+
+✅ VERIFICACIÓN RÁPIDA
+═══════════════════════
+
+Antes de empezar, verifica que estos archivos existen:
+
+[ ]  START_HERE.md
+[ ]  CAMBIO_A_DATOS_REALES.md
+[ ]  MIGRATION_TO_SUPABASE.md
+[ ]  AI_QUICK_GUIDE.md
+[ ]  SETUP_INSTRUCTIONS.md
+[ ]  DEPLOYMENT_CHECKLIST.md
+[ ]  VSCODE_SETUP.md
+[ ]  FILES_CREATED.md
+[ ]  README.md
+[ ]  public/service-worker.js
+[ ]  vercel.json
+[ ]  .gitignore
+
+Si todos existen: ✅ LISTO PARA EMPEZAR
+
+
+═══════════════════════════════════════════════════════════════════════════
+
+
+🎯 ARCHIVO PRINCIPAL PARA LA IA
+════════════════════════════════
+
+El archivo MÁS IMPORTANTE que debe leer la IA es:
+
+    ┌─────────────────────────┐
+    │   START_HERE.md         │
+    │   ═════════════         │
+    │   👈 EMPIEZA AQUÍ       │
+    └─────────────────────────┘
+
+Este archivo:
+✅ Resume TODO el proyecto
+✅ Explica qué hacer según la solicitud
+✅ Referencia a los demás archivos
+✅ Contiene reglas críticas
+
+
+═══════════════════════════════════════════════════════════════════════════
+
+
+📊 STATUS DEL PROYECTO
+═══════════════════════
+
+MVP Funcionalidades:           ✅ 100%
+PWA Features:                  ✅ 100%
+Service Worker:                ✅ Creado
+Documentación:                 ✅ Completa
+Configuración Vercel:          ✅ Lista
+Setup Git:                     ✅ Listo
+
+READY FOR PRODUCTION:          ✅ SÍ
+
+
+═══════════════════════════════════════════════════════════════════════════
+
+
+🚀 TU PRÓXIMA ACCIÓN
+════════════════════
+
+1. Abre Visual Studio Code
+2. Di a la IA: "Lee START_HERE.md"
+3. Luego sigue las instrucciones según lo que necesites hacer
+
+
+═══════════════════════════════════════════════════════════════════════════
+
+
+📞 INFORMACIÓN DEL PROYECTO
+════════════════════════════
+
+Nombre:       Gualán Market
+Tipo:         Progressive Web App (PWA)
+Tech Stack:   React + TypeScript + Vite + Tailwind v4
+Repositorio:  https://github.com/lufij/ConsumeLocal.git
+Deploy:       Vercel
+Idioma:       Español
+Moneda:       Quetzal (Q)
+Ubicación:    Gualán, Zacapa, Guatemala 🇬🇹
+
+
+═══════════════════════════════════════════════════════════════════════════
+
+
+🎉 ¡TODO LISTO!
+═══════════════
+
+Este proyecto está 100% configurado y documentado.
+Solo necesitas:
+
+1. npm install
+2. npm run dev
+3. Empezar a trabajar
+
+O para deployment:
+
+1. git push origin main
+2. Conectar con Vercel
+3. ¡Listo! 🚀
+
+
+═══════════════════════════════════════════════════════════════════════════
+
+Creado: Noviembre 2025
+Versión: 1.0.0
+Status: ✅ PRODUCTION READY
+
+🇬🇹 Gualán Market - Consume Local, Vende Local
+
+
+═══════════════════════════════════════════════════════════════════════════
