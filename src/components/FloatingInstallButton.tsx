@@ -272,8 +272,7 @@ export function FloatingInstallButton() {
           ) : (
             <>
               <Download className="w-7 h-7" />
-              <span className="hidden sm:inline text-lg">Instalar App</span>
-              <Smartphone className="w-7 h-7 sm:hidden" />
+              <span className="text-base sm:text-lg">Descargar App</span>
             </>
           )}
         </Button>

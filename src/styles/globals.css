@@ -235,7 +235,14 @@ input[type="range"].slider::-moz-range-track {
 
 /* Safe area padding for mobile notches */
 .pb-safe {
-  padding-bottom: max(1rem, env(safe-area-inset-bottom));
+  padding-bottom: max(1rem, env(safe-area-inset-bottom, 1rem));
+}
+
+/* Add safe area to the bottom for better mobile support */
+@supports (padding-bottom: env(safe-area-inset-bottom)) {
+  .pb-safe {
+    padding-bottom: calc(1rem + env(safe-area-inset-bottom));
+  }
 }
 
 /* Shimmer animation for Product of the Day badge */

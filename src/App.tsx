@@ -454,9 +454,9 @@ function App() {
       </main>
 
       {/* Bottom Navigation */}
-      <nav className="bg-white border-t border-gray-200 shadow-lg">
+      <nav className="bg-white border-t border-gray-200 shadow-lg pb-safe">
         <div className="max-w-7xl mx-auto px-2">
-          <div className="flex justify-around items-center py-2">
+          <div className="flex justify-around items-center py-2 pb-4">
             <NavButton
               icon={<Home className="w-6 h-6" />}
               label="Inicio"

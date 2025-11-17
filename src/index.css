@@ -3408,12 +3408,6 @@
   }
 
   @media (width >= 40rem) {
-    .sm\:hidden {
-      display: none;
-    }
-  }
-
-  @media (width >= 40rem) {
     .sm\:inline {
       display: inline;
     }
@@ -4084,7 +4078,13 @@ input[type="range"].slider::-moz-range-track {
 }
 
 .pb-safe {
-  padding-bottom: max(1rem, env(safe-area-inset-bottom));
+  padding-bottom: max(1rem, env(safe-area-inset-bottom, 1rem));
+}
+
+@supports (padding-bottom: env(safe-area-inset-bottom)) {
+  .pb-safe {
+    padding-bottom: calc(1rem + env(safe-area-inset-bottom));
+  }
 }
 
 @keyframes shimmer {
